@@ -1,0 +1,3 @@
+项目打war包，赋值这两个java文件就行
+MvcConfig: 配置类、扫描类
+WebSocketServer: 相当于controller

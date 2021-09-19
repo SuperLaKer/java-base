@@ -1,0 +1,24 @@
+### netty的channel
+    - Channel继承Comparable，每个channel都是唯一的
+    - ChannelPipeline: 相当于channelHandler的容器。有方向性tail 和 header
+    - 出入站：header->tail入站，tail -> header出站
+
+
+
+### netty的Pipeline
+    - pipeline连接client和server
+    - pipeline中的channelHandler是双向链表结构
+    - 入站和出站是相对的，client的出站在server角度就是入站
+    - 所以：server和client用同一份channelHandler配置就行。in和bound要成对出现，同一对handler先后位置无所谓
+
+
+### netty的ChannelHandler
+    - 多个Handler存放在pipeline中
+    - 根据出入站不同分为inBoundHandler和outBound
+    - inBoundHandler只在入站时调用。StringDecoder和StringEncoder只执行一个，先后无所谓
+
+
+
+### client和server
+    - server: 先Decoder再handler直接得到字符串
+    - client: 先handler发数据再Encoder

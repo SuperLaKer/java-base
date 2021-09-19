@@ -3,7 +3,7 @@ package slkjava.juc.d_blocking.dependencies;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class SlkRandom {
+public class MyRandom {
 
     public static String str(int size) {
         String str = "qwertyu1iopl2kjh3gfd4sa5zx6c07vb89nmQW8ERTY7UI6OPL5KJ4H9GF3DSA2ZXCVBN1M";

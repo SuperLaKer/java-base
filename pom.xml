@@ -12,6 +12,7 @@
         <module>java-juc</module>
         <module>java-thread</module>
         <module>java-jvm</module>
+        <module>java-io</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

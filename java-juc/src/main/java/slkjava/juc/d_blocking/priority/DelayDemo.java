@@ -3,7 +3,7 @@ package slkjava.juc.d_blocking.priority;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import slkjava.juc.d_blocking.dependencies.SlkRandom;
+import slkjava.juc.d_blocking.dependencies.MyRandom;
 
 import java.util.Random;
 import java.util.concurrent.DelayQueue;
@@ -23,7 +23,7 @@ public class DelayDemo {
         Random random = new Random();
         int num = 10;
         for (int i = 0; i < num; i++) {
-            delayQueue.add(new MovieTicket(random.nextInt(50), SlkRandom.str(10)));
+            delayQueue.add(new MovieTicket(random.nextInt(50), MyRandom.str(10)));
         }
         while (delayQueue.size() > 0) {
             MovieTicket take = delayQueue.take();

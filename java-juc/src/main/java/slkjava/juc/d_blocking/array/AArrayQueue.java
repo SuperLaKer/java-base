@@ -1,6 +1,6 @@
 package slkjava.juc.d_blocking.array;
 
-import slkjava.juc.d_blocking.dependencies.SlkRandom;
+import slkjava.juc.d_blocking.dependencies.MyRandom;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -76,7 +76,7 @@ class TheProducer implements Runnable {
     @Override
     public void run() {
         try {
-            queue.put(SlkRandom.str(6));
+            queue.put(MyRandom.str(6));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

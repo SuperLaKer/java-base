@@ -1,0 +1,19 @@
+## nio
+    基于selector、poll或epoll
+    连接：client连接到socket,selector把连接绑定到一个buffer_channel上
+    复用：selector遍历buffer_channel，检测channel是否收到消息等
+
+    底层数据结构：selector数组存放连接、poll链表存放连接、epoll哈希表负载度都是O(n)
+    AIO：复杂度O(1)
+
+## netty
+    netty可帮助Java开发者快速构建nio网络模型的web server和web client。对nio的封装
+
+### netty的线程池
+    - 线程池: 两个线程池，一个处理客户端与selector到bufChannel的绑定,一个处理channel的事件
+
+
+
+
+### ByteBuf: 二进制数组，readIndex,writeIndex,capacity。第二节课
+

@@ -1,0 +1,3 @@
+## 对象编码解码
+
+    netty提供了一对编解码handler用于处理Java对象，ObjectEncoder和ObjectDecoder
