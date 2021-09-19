@@ -1,0 +1,36 @@
+XXLock{
+    lockXX(){
+        AQS.acquireXX(1);
+    }
+}
+AQS同步器{
+    acquireXXLock(){
+        tryAcquire(){ fair or noFair.tryAcquire() };  // 尝试获取所，设置"独占"
+        doAcquireXXLock();  // 获取锁失败加入node
+    }
+}
+
+Fair or NoFair{
+    // 公平和非公平，实现逻辑有一点差异
+    nonfairTryAcquire(){};
+}
+
+
+
+
+Node{
+    Node pre;
+    Node next;
+    Node nextWaiter;
+    int waitStatus;
+    Thread thread;
+}
+AQS{
+    Node head;
+    Node tail;
+    int state;
+}
+condition{
+    Node firstWaiter;
+    Node lastWaiter;
+}

@@ -1,0 +1,38 @@
+===锁分类
+隐式锁：Synchronized、可重入锁_r
+显示锁：Lock接口下面的锁
+
+===Synchronized
+添加到static上，把锁添加到了类对象上，所有访问static的线程执行变为"串行化"。这把锁是全局唯一的
+添加到非static上，每创建一个实例都表示创建了一把锁，使用同一个实例的线程是"串行化"执行
+
+synchronization无法跨方法，使用unsafe可以跨方法
+UnsafeUtils.getUnsafe().monitorEnter();
+
+===锁
+Synchronized: monitorEnter ---> MutexLock(系统级别)--->上下文切换(保存寄存器现场)开销比较大
+没有获取monitor锁的线程会进入一个集合中
+
+== 对象结构{
+	锁，元空间指针，8byte整数倍，数组长度等等
+}
+对象存储：实例对象存储在堆区，实例对象的元数据存在Matespace。也可能存在于用户空间的线程私有栈中
+
+===JVM锁的优化
+锁消除、锁粗化
+例子：StringBuffer.append().append().append().append();每次调用append都加锁？共添加四次锁？
+NO NO NO!!
+锁的粗化：synchronized{StringBuffer.append().append().append().append()}
+
+锁的消除：
+先对锁对象进行逃逸分析，如果锁对象只是线程私有的则不会加锁
+每个线程调用都会产生新的实例，所以这个锁没啥用
+synchronized(new Object()){}
+
+
+
+
+
+
+
+
